@@ -22,10 +22,10 @@ MODEL_DIR = ROOT / "models"
 TARGET = "target"
 
 # TODO (S0-3) : colonnes numeriques de votre dataset
-NUMERIC_FEATURES: list[str] = ["Age"]
+NUMERIC_FEATURES: list[str] = ["Age", "Billing Amount"]
 
 # TODO (S0-4) : colonnes categorielles (peut rester vide : [])
-CATEGORICAL_FEATURES: list[str] = ["Gender", "Blood Type", "Medical Condition"]
+CATEGORICAL_FEATURES: list[str] = ["Gender", "Blood Type", "Medical Condition", "Admission Type", "Test Results", "Medication"]
 
 RANDOM_STATE = 42
 
@@ -33,3 +33,16 @@ RANDOM_STATE = 42
 MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://127.0.0.1:5000")
 MLFLOW_EXPERIMENT = os.getenv("MLFLOW_EXPERIMENT", "classification-baseline")
 MODEL_NAME = os.getenv("MODEL_NAME", "classifier")
+
+MLFLOW_EXPERIMENT_DESCRIPTION = os.getenv(
+    "MLFLOW_EXPERIMENT_DESCRIPTION",
+    "Projet de classification binaire.",
+)
+
+MLFLOW_EXPERIMENT_TAGS: dict[str, str] = {
+    "project": "ml-classification",
+    "task": "binary-classification",
+    "target": TARGET,
+    "dataset": "Healthcare",
+    "model_registry_name": MODEL_NAME,
+}
