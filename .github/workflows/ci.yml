@@ -69,7 +69,7 @@ jobs:
     env:
       PYTHONPATH: src
       MLFLOW_TRACKING_URI: sqlite:///mlflow.db
-      MLFLOW_EXPERIMENT: telco-churn-baseline
+      MLFLOW_EXPERIMENT: healthcare-baseline
 
     steps:
       - name: Checkout repository
@@ -96,18 +96,20 @@ jobs:
 
       - name: Prepare data
         run: |
-          if [ -f data/telco_churn_raw.csv ]; then
-            uv run python scripts/prepare_telco.py
-          elif [ -f data/telco_churn_clean.csv ]; then
+          if [ -f data/dataset.csv ]; then
+            uv run python scripts/prepare.py \
+              --input data/dataset.csv \
+              --output data/dataset_clean.csv
+          elif [ -f data/dataset_clean.csv ]; then
             echo "Clean dataset already exists."
           else
-            echo "Missing dataset: data/telco_churn_raw.csv or data/telco_churn_clean.csv"
+            echo "Missing dataset: data/dataset.csv"
             exit 1
           fi
 
       - name: Train baseline model
         run: |
-          uv run python -m mlproject.train --c 1.0 --max-iter 1000
+          uv run python -m scripts.train --c 1.0 --max-iter 1000
 
       - name: Check trained model exists
         run: |
