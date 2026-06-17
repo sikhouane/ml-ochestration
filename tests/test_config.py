@@ -1,4 +1,4 @@
-from src.config import (
+from config import (
     CATEGORICAL_FEATURES,
     DATA_PATH,
     MODEL_DIR,
@@ -8,7 +8,7 @@ from src.config import (
 
 
 def test_config_values_are_defined():
-    assert TARGET == "Churn"
+    assert TARGET == "target"
     assert DATA_PATH.name == "healthcare.csv"
     assert MODEL_DIR.name == "models"
     assert len(NUMERIC_FEATURES) > 0
