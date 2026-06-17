@@ -37,9 +37,6 @@ from sklearn.metrics import (
 )
 from sklearn.pipeline import Pipeline
 
-# TODO (S6-1) : importer optuna, optuna.samplers et
-#               sklearn.model_selection.cross_val_score
-
 from config import (
     MLFLOW_EXPERIMENT,
     MLFLOW_TRACKING_URI,
