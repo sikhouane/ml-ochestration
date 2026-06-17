@@ -1,5 +1,3 @@
-from future import annotations
-
 import logging
 
 import mlflow
