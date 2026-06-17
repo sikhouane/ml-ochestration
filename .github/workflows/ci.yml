@@ -109,7 +109,7 @@ jobs:
 
       - name: Train baseline model
         run: |
-          uv run python -m scripts.train --c 1.0 --max-iter 1000
+          uv run python -m src.train --c 1.0 --max-iter 1000
 
       - name: Check trained model exists
         run: |
