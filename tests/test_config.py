@@ -9,7 +9,7 @@ from src.config import (
 
 def test_config_values_are_defined():
     assert TARGET == "Churn"
-    assert DATA_PATH.name == "telco_churn_clean.csv"
+    assert DATA_PATH.name == "healthcare.csv"
     assert MODEL_DIR.name == "models"
     assert len(NUMERIC_FEATURES) > 0
     assert len(CATEGORICAL_FEATURES) > 0
