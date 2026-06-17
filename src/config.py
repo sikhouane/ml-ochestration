@@ -46,3 +46,7 @@ MLFLOW_EXPERIMENT_TAGS: dict[str, str] = {
     "dataset": "Healthcare",
     "model_registry_name": MODEL_NAME,
 }
+
+# Evaluation thresholds
+EVAL_F1_MIN = float(os.getenv("EVAL_F1_MIN", "0.7"))
+EVAL_ROC_AUC_MIN = float(os.getenv("EVAL_ROC_AUC_MIN", "0.8"))

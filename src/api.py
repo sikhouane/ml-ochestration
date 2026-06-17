@@ -16,7 +16,7 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from mlproject.config import CATEGORICAL_FEATURES, MODEL_DIR, NUMERIC_FEATURES
+from config import CATEGORICAL_FEATURES, MODEL_DIR, NUMERIC_FEATURES
 
 logging.basicConfig(
     level=logging.INFO,

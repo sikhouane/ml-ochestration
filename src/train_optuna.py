@@ -40,16 +40,16 @@ from sklearn.pipeline import Pipeline
 # TODO (S6-1) : importer optuna, optuna.samplers et
 #               sklearn.model_selection.cross_val_score
 
-from mlproject.config import (
+from config import (
     MLFLOW_EXPERIMENT,
     MLFLOW_TRACKING_URI,
     MODEL_DIR,
     MODEL_NAME,
     RANDOM_STATE,
 )
-from mlproject.data import load_data, split
-from mlproject.evaluation import log_shap_summary
-from mlproject.features import build_preprocessor
+from data import load_data, split
+from evaluate import log_shap_summary
+from features import build_preprocessor
 
 import optuna
 import optuna.samplers

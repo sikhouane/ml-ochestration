@@ -11,18 +11,54 @@ import mlflow.models
 from mlflow.exceptions import MlflowException
 from mlflow.models import MetricThreshold
 
-from mlproject.config import (
+from config import (
     DATA_PATH,
     EVAL_F1_MIN,
     EVAL_ROC_AUC_MIN,
     MODEL_NAME,
     TARGET,
 )
-from mlproject.data import load_data, split
-from mlproject.tracking import setup_experiment
+from data import load_data, split
+from tracking import setup_experiment
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
+
+
+def log_shap_summary(pipeline: object, x_test: object, name: str) -> None:
+    """Log SHAP summary plot to MLflow.
+
+    Parameters
+    ----------
+    pipeline : object
+        Fitted sklearn Pipeline.
+    x_test : object
+        Test features DataFrame.
+    name : str
+        Model/family name for logging purposes.
+    """
+    try:
+        import shap
+        import matplotlib.pyplot as plt
+
+        # Extract the model from the pipeline
+        model = pipeline.named_steps.get("clf", pipeline)  # type: ignore
+
+        # Create SHAP explainer
+        explainer = shap.Explainer(model)
+        shap_values = explainer(x_test)
+
+        # Log SHAP summary plot
+        plt.figure()
+        shap.summary_plot(shap_values, x_test, plot_type="bar", show=False)
+        mlflow.log_figure(plt.gcf(), f"shap_summary_{name}.png")
+        plt.close()
+
+        logger.info("SHAP summary logged for %s", name)
+    except ImportError:
+        logger.warning("shap not installed, skipping SHAP summary")
+    except Exception as exc:  # pylint: disable=broad-except
+        logger.warning("Failed to log SHAP summary for %s: %s", name, exc)
 
 
 def latest_model_uri() -> str:
