@@ -51,11 +51,11 @@ jobs:
 
       - name: Lint with ruff
         run: |
-          PYTHONPATH=src uv run ruff check src/mlproject scripts
+          PYTHONPATH=src uv run ruff check src/ scripts
 
       - name: Type check with mypy
         run: |
-          PYTHONPATH=src uv run mypy src/mlproject
+          PYTHONPATH=src uv run mypy src/
 
       - name: Tests with pytest
         run: |
