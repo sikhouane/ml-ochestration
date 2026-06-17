@@ -11,7 +11,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / ".env")
 
 # TODO (S0-1) : chemin vers votre fichier de donnees (CSV) place dans data/
