@@ -16,9 +16,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import ConfusionMatrixDisplay, f1_score, roc_auc_score
 from sklearn.pipeline import Pipeline
 
-from mlproject.config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT
-from mlproject.data import load_data, split
-from mlproject.features import build_preprocessor
+from config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT
+from data import load_data, split
+from features import build_preprocessor
 
 import mlflow
 import mlflow.sklearn
