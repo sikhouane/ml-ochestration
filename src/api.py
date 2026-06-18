@@ -1,7 +1,7 @@
 """API d'inference d'un modele de classification (FastAPI).
 
 Lancement :
-    uv run uvicorn mlproject.api:app --reload
+    uv run uvicorn src.api:app --reload
 """
 from __future__ import annotations
 

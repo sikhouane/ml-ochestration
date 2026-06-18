@@ -6,7 +6,7 @@ Utilisation :
     uv run python predict.py --api-url http://127.0.0.1:8000
 
 L'API doit etre lancee avant :
-    uv run uvicorn mlproject.api:app --host 127.0.0.1 --port 8000 --reload
+    uv run uvicorn src.api:app --host 127.0.0.1 --port 8000 --reload
 """
 
 from __future__ import annotations

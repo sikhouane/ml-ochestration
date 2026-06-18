@@ -175,7 +175,7 @@ def load_model(path: str) -> Any:
 @st.cache_data
 def load_test_data() -> tuple[pd.DataFrame, pd.Series]:
     """Recharge le dataset puis récupère le jeu de test."""
-    from mlproject.data import load_data, split
+    from src.data import load_data, split
 
     df = load_data()
     _, x_test, _, y_test = split(df)
@@ -400,7 +400,7 @@ def evaluation_tab(model: Any) -> None:
     except Exception as exc:
         st.error(
             "Impossible d'évaluer le modèle. Vérifie que le dataset, "
-            "mlproject.data.load_data et mlproject.data.split sont disponibles."
+            "src.data.load_data et src.data.split sont disponibles."
         )
         st.exception(exc)
 

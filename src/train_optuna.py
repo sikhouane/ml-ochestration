@@ -10,9 +10,9 @@ Chaque famille est suivie dans MLflow (un run par famille, imbrique sous un
 run parent) et la meilleure est enregistree dans le Model Registry.
 
 Lancement :
-    python -m mlproject.train_optuna
-    python -m mlproject.train_optuna --n-trials 50 --cv 3
-    python -m mlproject.train_optuna --no-mlflow   # desactive le suivi MLflow
+    python -m src.train_optuna
+    python -m src.train_optuna --n-trials 50 --cv 3
+    python -m src.train_optuna --no-mlflow   # desactive le suivi MLflow
 """
 from __future__ import annotations
 

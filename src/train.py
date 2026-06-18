@@ -3,7 +3,7 @@
 Seance 5 - TP MLflow Tracking
     Ce script entraine et evalue un modele SANS aucun suivi d'experience.
     Votre mission : instrumenter cet entrainement avec MLflow (voir les TODO).
-    La baseline fonctionne deja : `python -m mlproject.train` doit s'executer
+    La baseline fonctionne deja : `python -m src.train` doit s'executer
     tel quel une fois config.py adapte a votre dataset (TP S0).
 """
 from __future__ import annotations
