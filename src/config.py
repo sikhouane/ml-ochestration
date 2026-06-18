@@ -4,6 +4,14 @@ C'est le SEUL fichier a adapter pour brancher votre propre jeu de donnees :
 data.py, features.py et les scripts d'entrainement lisent toutes leurs
 colonnes via ces constantes. Voir tp/TP_S0_projet_personnel.md.
 """
+
+from __future__ import annotations
+
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
+
 # from __future__ import annotations
 
 # import os
@@ -51,15 +59,6 @@ colonnes via ces constantes. Voir tp/TP_S0_projet_personnel.md.
 # EVAL_F1_MIN = float(os.getenv("EVAL_F1_MIN", "0.7"))
 # EVAL_ROC_AUC_MIN = float(os.getenv("EVAL_ROC_AUC_MIN", "0.8"))
 
-
-"""Configuration centrale du projet de classification."""
-
-from __future__ import annotations
-
-import os
-from pathlib import Path
-
-from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(ROOT / ".env")
