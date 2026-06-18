@@ -16,7 +16,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import ConfusionMatrixDisplay, f1_score, roc_auc_score
 from sklearn.pipeline import Pipeline
 
-from config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT
+from config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT, MODEL_NAME
 from data import load_data, split
 from features import build_preprocessor
 
@@ -54,7 +54,13 @@ def train(c: float = 1.0, max_iter: int = 1000) -> dict:
 
         mlflow.log_params({"c": c, "max_iter": max_iter, "model": "logreg"})
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(model, name="model")
+        #mlflow.sklearn.log_model(model, name="model")
+        mlflow.sklearn.log_model(
+            sk_model=model,
+            name="model",
+            registered_model_name=MODEL_NAME,
+            serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
+        )
 
         # Bonus (S5-7) : sauvegarder la matrice de confusion en image et la logger en artefact
         ConfusionMatrixDisplay.from_predictions(y_test, preds)
