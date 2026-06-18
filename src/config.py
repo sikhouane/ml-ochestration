@@ -95,8 +95,9 @@ RANDOM_STATE = 42
 
 MLFLOW_TRACKING_URI = os.getenv(
     "MLFLOW_TRACKING_URI",
-    f"file://{ROOT / 'mlruns'}",
+    f"sqlite:///{ROOT / 'mlflow.db'}",
 )
+
 MLFLOW_EXPERIMENT = os.getenv(
     "MLFLOW_EXPERIMENT",
     "classification-baseline",

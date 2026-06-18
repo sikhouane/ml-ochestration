@@ -202,12 +202,12 @@ def batch_prediction(model: Any) -> None:
 
 def main() -> None:
     st.set_page_config(
-        page_title="Prédiction médicale",
+        page_title="Prédiction médicale - Sanaa Ikhouane",
         page_icon="🏥",
         layout="wide",
     )
 
-    st.title("🏥 Prédiction médicale")
+    st.title("Prédiction médicale")
     st.caption("Interface simple pour tester le modèle entraîné.")
 
     model_path = st.sidebar.text_input(

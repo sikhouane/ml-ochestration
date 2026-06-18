@@ -4,7 +4,7 @@ import mlflow
 from mlflow.data.pandas_dataset import from_pandas
 import pandas as pd
 
-from config import (
+from src.config import (
     DATA_PATH,
     MLFLOW_EXPERIMENT,
     MLFLOW_EXPERIMENT_DESCRIPTION,

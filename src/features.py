@@ -7,7 +7,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from config import CATEGORICAL_FEATURES, NUMERIC_FEATURES
+from src.config import CATEGORICAL_FEATURES, NUMERIC_FEATURES
 
 
 def build_preprocessor() -> ColumnTransformer:

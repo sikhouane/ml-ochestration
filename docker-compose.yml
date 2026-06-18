@@ -1,0 +1,38 @@
+services:
+  train:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.train
+    image: mlproject-train
+    environment:
+      MLFLOW_TRACKING_URI: sqlite:////app/mlflow.db
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./mlflow.db:/app/mlflow.db
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    image: mlproject-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+    depends_on:
+      train:
+        condition: service_completed_successfully
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    image: mlproject-frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models:ro
+    depends_on:
+      train:
+        condition: service_completed_successfully

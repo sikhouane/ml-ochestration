@@ -16,9 +16,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import ConfusionMatrixDisplay, f1_score, roc_auc_score
 from sklearn.pipeline import Pipeline
 
-from config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT, MODEL_NAME
-from data import load_data, split
-from features import build_preprocessor
+from src.config import MODEL_DIR, MLFLOW_TRACKING_URI, MLFLOW_EXPERIMENT, MODEL_NAME
+from src.data import load_data, split
+from src.features import build_preprocessor
 
 import mlflow
 import mlflow.sklearn
@@ -54,7 +54,6 @@ def train(c: float = 1.0, max_iter: int = 1000) -> dict:
 
         mlflow.log_params({"c": c, "max_iter": max_iter, "model": "logreg"})
         mlflow.log_metrics(metrics)
-        #mlflow.sklearn.log_model(model, name="model")
         mlflow.sklearn.log_model(
             sk_model=model,
             name="model",

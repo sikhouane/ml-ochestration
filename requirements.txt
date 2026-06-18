@@ -1,4 +1,11 @@
+fastapi
+uvicorn[standard]
+streamlit
 pandas
 scikit-learn
-dotenv
 joblib
+mlflow
+python-dotenv
+matplotlib
+shap
+dotenv

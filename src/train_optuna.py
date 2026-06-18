@@ -37,7 +37,7 @@ from sklearn.metrics import (
 )
 from sklearn.pipeline import Pipeline
 
-from config import (
+from src.config import (
     MLFLOW_EXPERIMENT,
     MLFLOW_TRACKING_URI,
     MODEL_DIR,
@@ -343,13 +343,13 @@ def log_family_to_mlflow(
             signature=signature,
             input_example=x_test.iloc[:5],
             registered_model_name=register_as,
+            serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
         )
 
         if register_as and model_info.registered_model_version:
             describe_registered_version(
                 register_as, model_info.registered_model_version, result, n_trials, cv
             )
-
 
 def describe_registered_version(
     name: str,
