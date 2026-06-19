@@ -155,7 +155,7 @@ def show_header() -> None:
     st.markdown(
         """
         <div class="app-header">
-            <h1>🏥 Prédiction médicale</h1>
+            <h1>🏥 Prédiction médicale - Sanaa Ikhouane</h1>
             <p>
                 Interface Streamlit pour tester le modèle, évaluer ses performances,
                 consulter la documentation et suivre les DAGs Airflow.
