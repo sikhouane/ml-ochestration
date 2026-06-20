@@ -530,10 +530,10 @@ def sidebar(model_path: str) -> None:
 
     st.sidebar.divider()
     st.sidebar.write("Services utiles :")
-    st.sidebar.markdown("- Streamlit : `8501`")
-    st.sidebar.markdown("- FastAPI : `8000`")
-    st.sidebar.markdown("- MLflow : `5000`")
-    st.sidebar.markdown("- Airflow : `8080`")
+    st.sidebar.markdown("- 🏠 **Streamlit** : [Frontend](http://88.96.44.64:8501)")
+    st.sidebar.markdown("- ⚡ **FastAPI** : [Documentation API](http://88.96.44.64:8000/docs)")
+    st.sidebar.markdown("- 🧪 **MLflow** : [Tracking UI](http://88.96.44.64:5000/)")
+    st.sidebar.markdown("- 🌬️ **Airflow** : [DAGs & orchestration](http://88.96.44.64:8080/home)")
 
 
 def main() -> None:
